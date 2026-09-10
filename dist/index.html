@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2027 Calendar Studio</title>
+  
+  <!-- Curated Typography for Themes & Templates -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Quicksand:wght@500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Dynamic Print Stylesheet -->
+  <style id="dynamic-print-style">@media print{@page{size:A4 landscape;margin:0}}</style>
+
+  <style>:root{--bg-page:#f8fafc;--bg-card:#fff;--text-main:#0f172a;--text-muted:#64748b;--accent:#2563eb;--accent-light:#eff6ff;--border-color:#e2e8f0;--font-family:"Inter", sans-serif;--heading-font:"Inter", sans-serif;--day-header-bg:#f1f5f9;--weekend-color:#ef4444;--holiday-regular:#dc2626;--holiday-special:#d97706;--event-bg:#eff6ff;--event-color:#1d4ed8;--card-radius:10px;--overlay-bg:#ffffffe0}[data-theme=girly]{--bg-page:#fff5f7;--bg-card:#fff;--text-main:#701a75;--text-muted:#a21caf;--accent:#ec4899;--accent-light:#fce7f3;--border-color:#fbcfe8;--font-family:"Plus Jakarta Sans", sans-serif;--heading-font:"Dancing Script", cursive;--day-header-bg:#fdf2f8;--weekend-color:#f43f5e;--holiday-regular:#e11d48;--holiday-special:#db2777;--event-bg:#fce7f3;--event-color:#be185d;--overlay-bg:#fff5f7e0}[data-theme=lavender]{--bg-page:#f8f7ff;--bg-card:#fff;--text-main:#3b0764;--text-muted:#6b21a8;--accent:#8b5cf6;--accent-light:#f3e8ff;--border-color:#e9d5ff;--font-family:"Quicksand", sans-serif;--heading-font:"Quicksand", sans-serif;--day-header-bg:#faf5ff;--weekend-color:#a855f7;--holiday-regular:#9333ea;--holiday-special:#c084fc;--event-bg:#f3e8ff;--event-color:#6b21a8;--overlay-bg:#f8f7ffe0}[data-theme=peach]{--bg-page:#fff8f5;--bg-card:#fff;--text-main:#7c2d12;--text-muted:#c2410c;--accent:#f97316;--accent-light:#ffedd5;--border-color:#fed7aa;--font-family:"Plus Jakarta Sans", sans-serif;--heading-font:"Plus Jakarta Sans", sans-serif;--day-header-bg:#fff7ed;--weekend-color:#ea580c;--holiday-regular:#dc2626;--holiday-special:#f97316;--event-bg:#ffedd5;--event-color:#c2410c;--overlay-bg:#fff8f5e0}[data-theme=botanical]{--bg-page:#f4f7f4;--bg-card:#fff;--text-main:#143622;--text-muted:#3d6b4d;--accent:#2d6a4f;--accent-light:#e8f5e9;--border-color:#c8e6c9;--font-family:"Playfair Display", serif;--heading-font:"Playfair Display", serif;--day-header-bg:#ebf5ee;--weekend-color:#b91c1c;--holiday-regular:#991b1b;--holiday-special:#d97706;--event-bg:#e8f5e9;--event-color:#1b4332;--overlay-bg:#f4f7f4e0}[data-theme=editorial]{--bg-page:#faf9f6;--bg-card:#fff;--text-main:#1c1917;--text-muted:#57534e;--accent:#1c1917;--accent-light:#f5f5f4;--border-color:#e7e5e4;--font-family:"Playfair Display", serif;--heading-font:"Playfair Display", serif;--day-header-bg:#f5f5f4;--weekend-color:#991b1b;--holiday-regular:#b91c1c;--holiday-special:#b45309;--event-bg:#f5f5f4;--event-color:#1c1917;--overlay-bg:#faf9f6e0}[data-theme=nordic]{--bg-page:#f7f4ef;--bg-card:#fff;--text-main:#292524;--text-muted:#78716c;--accent:#b45309;--accent-light:#fef3c7;--border-color:#e7e0d3;--font-family:"Plus Jakarta Sans", sans-serif;--heading-font:"DM Serif Display", serif;--day-header-bg:#f0eae1;--weekend-color:#c2410c;--holiday-regular:#b91c1c;--holiday-special:#d97706;--event-bg:#ffedd5;--event-color:#9a3412;--overlay-bg:#f7f4efe0}[data-theme=midnight]{--bg-page:#0b0f19;--bg-card:#111827;--text-main:#f9fafb;--text-muted:#9ca3af;--accent:#f59e0b;--accent-light:#1f2937;--border-color:#374151;--font-family:"Space Grotesk", sans-serif;--heading-font:"Cinzel", serif;--day-header-bg:#1f2937;--weekend-color:#f87171;--holiday-regular:#ef4444;--holiday-special:#fbbf24;--event-bg:#374151;--event-color:#fde68a;--overlay-bg:#111827e0}[data-theme=bauhaus]{--bg-page:#f8fafc;--bg-card:#fff;--text-main:#09090b;--text-muted:#71717a;--accent:#2563eb;--accent-light:#e0e7ff;--border-color:#18181b;--font-family:"Space Grotesk", sans-serif;--heading-font:"Space Grotesk", sans-serif;--day-header-bg:#f4f4f5;--weekend-color:#dc2626;--holiday-regular:#e11d48;--holiday-special:#f59e0b;--event-bg:#e0e7ff;--event-color:#1d4ed8;--card-radius:0px;--overlay-bg:#ffffffe6}[data-theme=ocean]{--bg-page:#f0fdfa;--bg-card:#fff;--text-main:#134e4a;--text-muted:#2dd4bf;--accent:#0d9488;--accent-light:#ccfbf1;--border-color:#99f6e4;--font-family:"Plus Jakarta Sans", sans-serif;--heading-font:"Plus Jakarta Sans", sans-serif;--day-header-bg:#e6fffa;--weekend-color:#0284c7;--holiday-regular:#0369a1;--holiday-special:#0d9488;--event-bg:#ccfbf1;--event-color:#0f766e;--overlay-bg:#f0fdfae0}[data-theme=vintage]{--bg-page:#fbf7ee;--bg-card:#fffdf9;--text-main:#382d23;--text-muted:#705e4d;--accent:#854d0e;--accent-light:#fef9c3;--border-color:#e6dac6;--font-family:"Playfair Display", serif;--heading-font:"DM Serif Display", serif;--day-header-bg:#f4ebe0;--weekend-color:#991b1b;--holiday-regular:#7f1d1d;--holiday-special:#b45309;--event-bg:#fef3c7;--event-color:#78350f;--overlay-bg:#fffdf9e0}.template-polaroid .month-card-photo,.template-polaroid .cover-photo-frame,.template-polaroid .fullpage-photo-frame{border:1px solid #0000001a;padding:6px 6px 18px;position:relative;box-shadow:0 4px 12px #0000001f;background:#fff!important;border-radius:2px!important}.template-polaroid .month-card-photo:after,.template-polaroid .cover-photo-frame:after{content:"📌";z-index:5;font-size:13px;position:absolute;top:-8px;left:50%;transform:translate(-50%)}.template-polaroid .cover-photo-frame img,.template-polaroid .month-card-photo img,.template-polaroid .fullpage-photo-frame img{border-radius:2px!important}.template-arch .month-card-photo,.template-arch .cover-photo-frame,.template-arch .fullpage-photo-frame{border:2px solid var(--accent);background:var(--bg-page);padding:3px;border-radius:120px 120px 10px 10px!important}.template-arch .month-card-photo img,.template-arch .cover-photo-frame img,.template-arch .fullpage-photo-frame img{border-radius:116px 116px 8px 8px!important}.planner-notes-block{border:1px dashed var(--border-color);background:var(--bg-page);border-radius:6px;flex-direction:column;gap:3px;margin-top:6px;padding:5px 8px;display:flex}.planner-notes-header{text-transform:uppercase;letter-spacing:.05em;color:var(--accent);justify-content:space-between;font-size:.6rem;font-weight:700;display:flex}.planner-line-row{color:var(--text-muted);align-items:center;gap:5px;font-size:.58rem;line-height:1.2;display:flex}.planner-checkbox-dot{border:1px solid var(--border-color);background:#fff;border-radius:2px;flex-shrink:0;width:8px;height:8px}.template-basic .month-card-photo,.template-basic .cover-photo-frame,.template-basic .fullpage-photo-frame{display:none!important}.template-basic .month-desk-card{padding:18px!important}.template-basic .day-cell{min-height:28px!important;padding:4px 6px!important}.template-basic .fullpage-month-header{margin-bottom:16px!important}.punch-hole-container{pointer-events:none;z-index:25;justify-content:center;align-items:center;display:flex;position:absolute}.punch-top-edge{justify-content:center;gap:80mm;display:flex;top:5mm;left:0;right:0}.punch-spiral-edge{justify-content:space-between;display:flex;top:4.5mm;left:10mm;right:10mm}.punch-left-edge{flex-direction:column;justify-content:center;gap:80mm;display:flex;top:0;bottom:0;left:5mm}.punch-hole-mark{box-sizing:border-box;opacity:.65;background-color:#0000;border:.75px dashed #94a3b8;border-radius:50%;flex-shrink:0;width:5.5mm;height:5.5mm;position:relative}.punch-hole-mark:after{content:"";background:#64748b;border-radius:50%;width:1.2px;height:1.2px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)}.punch-spiral-mark{opacity:.55;border:.6px solid #94a3b8;border-radius:50%;width:3.5mm;height:3.5mm}.card-has-bg-photo{background:0 0!important;position:relative!important;overflow:hidden!important}.card-bg-photo-layer{z-index:1;pointer-events:none;width:100%;height:100%;position:absolute;inset:0;overflow:hidden}.card-bg-photo-layer img{object-fit:cover;width:100%;height:100%}.card-bg-photo-overlay{z-index:2;background:var(--overlay-bg);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);pointer-events:none;position:absolute;inset:0}.card-content-foreground{z-index:3;flex-direction:column;width:100%;height:100%;display:flex;position:relative}*{box-sizing:border-box;margin:0;padding:0}html,body{height:100vh;font-family:var(--font-family);color:#334155;background-color:#0f172a;overflow:hidden}.app-container{width:100vw;height:100vh;display:flex;overflow:hidden}.sidebar{z-index:20;background:#fff;border-right:1px solid #e2e8f0;flex-direction:column;flex-shrink:0;width:375px;height:100vh;display:flex;position:sticky;top:0;box-shadow:4px 0 20px #0000000d}.sidebar-header{background:#f8fafc;border-bottom:1px solid #e2e8f0;flex-shrink:0;padding:16px 20px}.sidebar-header h1{color:#0f172a;align-items:center;gap:8px;font-size:1.2rem;font-weight:700;display:flex}.sidebar-content{flex-direction:column;flex:1;gap:16px;padding:18px 20px;display:flex;overflow-y:auto}.control-group{flex-direction:column;gap:7px;display:flex}.control-label{text-transform:uppercase;letter-spacing:.05em;color:#64748b;font-size:.76rem;font-weight:700}.input-text,.select-input{border:1px solid #cbd5e1;border-radius:6px;outline:none;width:100%;padding:9px 12px;font-family:inherit;font-size:.88rem;transition:all .2s}.input-text:focus,.select-input:focus{border-color:#2563eb;box-shadow:0 0 0 3px #2563eb1a}.checkbox-label{color:#334155;cursor:pointer;-webkit-user-select:none;user-select:none;align-items:center;gap:8px;font-size:.84rem;display:flex}.grid-2{grid-template-columns:repeat(2,1fr);gap:7px;display:grid}.option-pill-btn{color:#334155;cursor:pointer;text-align:center;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;justify-content:center;align-items:center;gap:5px;padding:8px 10px;font-size:.8rem;font-weight:600;transition:all .2s;display:flex}.option-pill-btn:hover{background:#f1f5f9}.option-pill-btn.active{color:#1e40af;background:#eff6ff;border-color:#2563eb;box-shadow:0 1px 2px #2563eb1f}.photo-slot-picker{gap:6px;margin-bottom:6px;display:flex}.upload-btn-group{gap:8px;display:flex}.file-input-hidden{display:none}.btn{cursor:pointer;border:none;border-radius:6px;justify-content:center;align-items:center;gap:6px;padding:9px 15px;font-size:.85rem;font-weight:600;transition:all .2s;display:inline-flex}.btn-primary{color:#fff;background:#2563eb}.btn-primary:hover{background:#1d4ed8}.btn-secondary{color:#334155;background:#f1f5f9;border:1px solid #cbd5e1}.btn-secondary:hover{background:#e2e8f0}.main-stage{background:#1e293b;flex-direction:column;flex:1;align-items:center;height:100vh;padding:24px 36px;display:flex;overflow-y:auto}.toolbar{color:#fff;justify-content:space-between;align-items:center;width:100%;max-width:1100px;margin-bottom:20px;display:flex}.booklet-container{flex-direction:column;align-items:center;gap:36px;width:100%;max-width:1100px;display:flex}.a4-page-sheet{background:var(--bg-card);width:100%;color:var(--text-main);box-sizing:border-box;page-break-after:always;break-after:page;border-radius:4px;position:relative;overflow:hidden;box-shadow:0 15px 35px #00000059}.a4-page-sheet.desktop-portrait{aspect-ratio:297/210;grid-template-columns:1fr 1fr;display:grid}.a4-page-sheet.desktop-portrait .cut-line-guide{z-index:10;pointer-events:none;opacity:.5;border-left:1px dashed #94a3b8;width:1px;position:absolute;top:0;bottom:0;left:50%;transform:translate(-50%)}.a4-page-sheet.desktop-landscape{aspect-ratio:210/297;grid-template-rows:1fr 1fr;max-width:780px;display:grid}.a4-page-sheet.desktop-landscape .cut-line-guide{z-index:10;pointer-events:none;opacity:.5;border-top:1px dashed #94a3b8;height:1px;position:absolute;top:50%;left:0;right:0;transform:translateY(-50%)}.a4-page-sheet.fullpage-layout{aspect-ratio:297/210;flex-direction:row;gap:26px;padding:30px;display:flex;position:relative}.fullpage-left-photo{flex-direction:column;width:44%;height:100%;display:flex}.fullpage-photo-frame{border-radius:var(--card-radius);background:var(--day-header-bg);border:1px solid var(--border-color);justify-content:center;align-items:center;width:100%;height:100%;display:flex;position:relative;overflow:hidden}.fullpage-right-content{flex-direction:column;width:56%;height:100%;display:flex}.template-basic.fullpage-layout .fullpage-left-photo{display:none!important}.template-basic.fullpage-layout .fullpage-right-content{width:100%!important}.desk-card{box-sizing:border-box;background-color:var(--bg-card);width:100%;height:100%;font-family:var(--font-family);flex-direction:column;padding:18px;display:flex;position:relative;overflow:hidden}.desk-card.card-style-portrait{flex-direction:column}.desk-card.card-style-landscape{flex-direction:row;gap:16px}.cover-card-content{text-align:center;border:1px solid var(--border-color);border-radius:var(--card-radius);background:var(--bg-page);flex-direction:column;justify-content:center;align-items:center;width:100%;height:100%;padding:20px;display:flex}.card-style-landscape .cover-card-content{text-align:left;flex-direction:row;justify-content:flex-start;align-items:center;gap:24px}.cover-photo-frame{background:var(--day-header-bg);border:1px solid var(--border-color);border-radius:8px;flex-shrink:0;justify-content:center;align-items:center;width:100%;max-width:240px;height:160px;margin-bottom:16px;display:flex;position:relative;overflow:hidden}.card-style-landscape .cover-photo-frame{max-width:240px;height:180px;margin-bottom:0}.cover-photo-frame img,.month-card-photo img,.fullpage-photo-frame img{width:100%;height:100%;transition:transform 50ms,object-position 50ms}.cover-title{font-family:var(--heading-font);color:var(--text-main);margin-bottom:8px;font-size:2.2rem;font-weight:700;line-height:1.1}.cover-subtitle{color:var(--text-muted);margin-top:4px;font-size:.95rem}.cover-subtitle.italicized{font-style:italic}.cover-footnote-text{letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);margin-top:auto;font-size:.75rem}.year-overview-card{border:1px solid var(--border-color);border-radius:var(--card-radius);background:var(--bg-card);flex-direction:column;width:100%;height:100%;padding:14px;display:flex}.card-header-sm{border-bottom:1px solid var(--border-color);justify-content:space-between;align-items:center;margin-bottom:10px;padding-bottom:6px;display:flex}.card-header-sm h3{letter-spacing:.05em;text-transform:uppercase;color:var(--text-main);font-size:.85rem;font-weight:700}.mini-year-grid{flex:1;grid-template-columns:repeat(3,1fr);gap:6px;display:grid}.card-style-landscape .mini-year-grid{grid-template-columns:repeat(4,1fr)}.mini-month-unit{border:1px solid var(--border-color);background:var(--bg-page);border-radius:6px;padding:4px;font-size:.52rem}.mini-month-unit h4{color:var(--accent);text-align:center;margin-bottom:2px;font-size:.6rem;font-weight:700}.mini-days-num{text-align:center;color:var(--text-main);grid-template-columns:repeat(7,1fr);gap:1px;display:grid}.month-desk-card{border:1px solid var(--border-color);border-radius:var(--card-radius);background:var(--bg-card);width:100%;height:100%;padding:12px;display:flex}.card-style-portrait .month-desk-card{flex-direction:column}.card-style-landscape .month-desk-card{flex-direction:row;gap:14px}.landscape-card-left{flex-direction:column;width:38%;height:100%;display:flex}.landscape-card-right{flex-direction:column;width:62%;height:100%;display:flex}.template-basic .landscape-card-left{display:none!important}.template-basic .landscape-card-right{width:100%!important}.month-card-photo{background:var(--day-header-bg);border:1px solid var(--border-color);border-radius:6px;justify-content:center;align-items:center;width:100%;height:110px;margin-bottom:8px;display:flex;position:relative;overflow:hidden}.card-style-landscape .month-card-photo{flex:1;height:100%;margin-bottom:0}.month-card-photo .no-img-placeholder{font-family:var(--heading-font);color:var(--accent);opacity:.65;font-size:1.4rem}.month-card-header{justify-content:space-between;align-items:baseline;margin-bottom:6px;display:flex}.month-card-title{font-family:var(--heading-font);color:var(--text-main);font-size:1.35rem;font-weight:700}.month-card-year{color:var(--text-muted);font-size:.85rem;font-weight:600}.fullpage-month-header{border-bottom:2px solid var(--border-color);justify-content:space-between;align-items:baseline;margin-bottom:10px;padding-bottom:8px;display:flex}.fullpage-month-title{font-family:var(--heading-font);color:var(--text-main);font-size:2.4rem;font-weight:700;line-height:1}.card-calendar-grid{flex-direction:column;flex:1;display:flex}.weekdays-row{text-align:center;text-transform:uppercase;background:var(--day-header-bg);color:var(--text-muted);border-radius:4px;grid-template-columns:repeat(7,1fr);margin-bottom:4px;padding:4px 0;font-size:.65rem;font-weight:700;display:grid}.fullpage-layout .weekdays-row{margin-bottom:6px;padding:6px 0;font-size:.8rem}.days-grid-matrix{grid-rows:repeat(6, 1fr);flex:1;grid-template-columns:repeat(7,1fr);gap:2px;display:grid}.fullpage-layout .days-grid-matrix{gap:4px}.day-cell{border:1px solid var(--border-color);background:var(--bg-card);border-radius:3px;flex-direction:column;justify-content:flex-start;min-height:20px;padding:2px 4px;font-size:.68rem;display:flex;overflow:hidden}.fullpage-layout .day-cell{padding:4px 6px;font-size:.8rem}.day-cell.other-month{opacity:.25;border-color:#0000}.day-num{color:var(--text-main);font-weight:600}.day-cell.is-weekend .day-num{color:var(--weekend-color)}.holiday-indicator{white-space:normal;word-break:break-word;margin-top:1px;font-size:.52rem;font-weight:600;line-height:1.15;overflow:visible}.fullpage-layout .holiday-indicator{font-size:.65rem}.holiday-indicator.regular{color:var(--holiday-regular)}.holiday-indicator.special{color:var(--holiday-special)}.event-indicator{background:var(--event-bg);color:var(--event-color);white-space:normal;word-break:break-word;border-radius:3px;margin-top:1px;padding:1px 3px;font-size:.52rem;font-weight:600;line-height:1.15;overflow:visible}.fullpage-layout .event-indicator{font-size:.65rem}.card-footer-footnote{text-align:center;color:var(--text-muted);letter-spacing:.05em;text-transform:uppercase;margin-top:5px;font-size:.62rem}.fullpage-layout .card-footer-footnote{margin-top:10px;font-size:.75rem}@media print{body,html,.app-container{color:#000!important;background:#fff!important;width:100%!important;height:auto!important;display:block!important;overflow:visible!important}.sidebar,.toolbar{display:none!important}.main-stage{background:#fff!important;height:auto!important;padding:0!important;display:block!important;overflow:visible!important}.booklet-container{gap:0!important;width:100%!important;max-width:none!important;display:block!important}.a4-page-sheet{box-shadow:none!important;page-break-after:always!important;break-after:page!important;page-break-inside:avoid!important;break-inside:avoid!important;box-sizing:border-box!important;border-radius:0!important;margin:0!important}.a4-page-sheet.desktop-portrait{width:297mm!important;height:210mm!important}.a4-page-sheet.desktop-landscape{width:210mm!important;max-width:none!important;height:297mm!important}.a4-page-sheet.fullpage-layout{width:297mm!important;height:210mm!important}.event-indicator,.holiday-indicator{white-space:normal!important;word-break:break-word!important}.punch-hole-mark{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;border-color:#64748b!important}}</style>
+</head>
+<body>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1>🗓️ Calendar Studio</h1>
+      </div>
+
+      <div class="sidebar-content">
+        <!-- Page Layout Format -->
+        <div class="control-group">
+          <label class="control-label">Page Layout Format</label>
+          <div class="grid-2">
+            <button class="option-pill-btn active" id="btn-layout-desktop" onclick="setLayoutMode('desktop')">
+              📱 Desktop (2 Cards)
+            </button>
+            <button class="option-pill-btn" id="btn-layout-fullpage" onclick="setLayoutMode('fullpage')">
+              📄 Full Page (1 Month)
+            </button>
+          </div>
+        </div>
+
+        <!-- Structural Template Choice -->
+        <div class="control-group">
+          <label class="control-label">Card Layout Template</label>
+          <div class="grid-2">
+            <button class="option-pill-btn active template-select-btn" data-template="classic" onclick="setCardTemplate('classic')">
+              🖼️ Classic Studio
+            </button>
+            <button class="option-pill-btn template-select-btn" data-template="basic" onclick="setCardTemplate('basic')">
+              ✨ Basic Clean (No Photos)
+            </button>
+            <button class="option-pill-btn template-select-btn" data-template="planner" onclick="setCardTemplate('planner')">
+              📝 Planner & Notes
+            </button>
+            <button class="option-pill-btn template-select-btn" data-template="polaroid" onclick="setCardTemplate('polaroid')">
+              📷 Polaroid Snap
+            </button>
+            <button class="option-pill-btn template-select-btn" data-template="arch" onclick="setCardTemplate('arch')">
+              🏛️ Arched Deco
+            </button>
+          </div>
+        </div>
+
+        <!-- Photo Layout Style (Frame vs Full Background) -->
+        <div class="control-group" id="photo-display-mode-group">
+          <label class="control-label">Photo Display Style</label>
+          <div class="grid-2">
+            <button class="option-pill-btn active" id="btn-photomode-card" onclick="setPhotoDisplayMode('card')">
+              🖼️ Inset Card Frame
+            </button>
+            <button class="option-pill-btn" id="btn-photomode-bg" onclick="setPhotoDisplayMode('background')">
+              🌌 Full Card Background
+            </button>
+          </div>
+          <div id="bg-opacity-control" style="display: none; margin-top: 6px; flex-direction: column; gap: 4px; font-size: 0.78rem; background: #f8fafc; padding: 8px; border-radius: 6px; border: 1px solid #e2e8f0;">
+            <div style="display: flex; justify-content: space-between;">
+              <span>Card Overlay Opacity:</span>
+              <span id="bg-opacity-val">88%</span>
+            </div>
+            <input type="range" id="bg-opacity-range" min="40" max="98" value="88" oninput="setBgOverlayOpacity(this.value)">
+          </div>
+        </div>
+
+        <!-- Punch Hole Marks Configuration -->
+        <div class="control-group">
+          <label class="control-label">Punch Hole & Drill Guides</label>
+          <div class="grid-2">
+            <button class="option-pill-btn active" id="btn-punch-none" onclick="setPunchHoleStyle('none')">
+              🚫 None
+            </button>
+            <button class="option-pill-btn" id="btn-punch-two" onclick="setPunchHoleStyle('two-hole')">
+              🔘 Standard 2-Holes
+            </button>
+            <button class="option-pill-btn" id="btn-punch-spiral" onclick="setPunchHoleStyle('spiral')">
+              🔗 Wire-O / Spiral
+            </button>
+          </div>
+        </div>
+
+        <!-- Card Shape / Orientation Toggle -->
+        <div class="control-group" id="card-orientation-group">
+          <label class="control-label">Desk Card Shape (When Cut)</label>
+          <div class="grid-2">
+            <button class="option-pill-btn active" id="btn-card-portrait" onclick="setCardOrientation('portrait')">
+              📄 Portrait Cards
+            </button>
+            <button class="option-pill-btn" id="btn-card-landscape" onclick="setCardOrientation('landscape')">
+              🖼️ Landscape Cards
+            </button>
+          </div>
+        </div>
+
+        <!-- Year Selection -->
+        <div class="control-group">
+          <label class="control-label" for="year-input">Calendar Year</label>
+          <input type="number" id="year-input" class="input-text" value="2027" min="2020" max="2035">
+        </div>
+
+        <!-- Personal Events Manager -->
+        <div class="control-group">
+          <label class="control-label">Add Personal Events</label>
+          <div style="display: flex; gap: 6px;">
+            <select id="event-month-select" class="select-input" style="width: 45%;">
+              <option value="0">Jan</option>
+              <option value="1">Feb</option>
+              <option value="2">Mar</option>
+              <option value="3">Apr</option>
+              <option value="4">May</option>
+              <option value="5">Jun</option>
+              <option value="6">Jul</option>
+              <option value="7">Aug</option>
+              <option value="8">Sep</option>
+              <option value="9">Oct</option>
+              <option value="10">Nov</option>
+              <option value="11">Dec</option>
+            </select>
+            <input type="number" id="event-day-input" class="input-text" placeholder="Day" min="1" max="31" value="1" style="width: 30%;">
+            <button class="btn btn-primary" onclick="addPersonalEvent()" style="width: 25%; padding: 6px;">+ Add</button>
+          </div>
+          <input type="text" id="event-title-input" class="input-text" placeholder="Event Title (e.g. Mom's Birthday 🎂)">
+          <div id="events-list-container" style="display: flex; flex-direction: column; gap: 4px; margin-top: 4px; max-height: 120px; overflow-y: auto;">
+            <!-- Dynamic events list -->
+          </div>
+        </div>
+
+        <!-- Aesthetic Themes -->
+        <div class="control-group">
+          <label class="control-label">Aesthetic Theme</label>
+          <div class="grid-2">
+            <button class="option-pill-btn theme-btn active" data-theme="minimal">Minimal Crisp</button>
+            <button class="option-pill-btn theme-btn" data-theme="girly">Girly Blush 🌸</button>
+            <button class="option-pill-btn theme-btn" data-theme="lavender">Lavender 💜</button>
+            <button class="option-pill-btn theme-btn" data-theme="peach">Peach Sorbet 🍑</button>
+            <button class="option-pill-btn theme-btn" data-theme="botanical">Botanical 🌿</button>
+            <button class="option-pill-btn theme-btn" data-theme="editorial">Editorial 📰</button>
+            <button class="option-pill-btn theme-btn" data-theme="nordic">Nordic Hygge ☕</button>
+            <button class="option-pill-btn theme-btn" data-theme="midnight">Midnight Gold 🌌</button>
+            <button class="option-pill-btn theme-btn" data-theme="bauhaus">Bauhaus Bold 🎨</button>
+            <button class="option-pill-btn theme-btn" data-theme="ocean">Ocean Breeze 🌊</button>
+            <button class="option-pill-btn theme-btn" data-theme="vintage">Vintage Sepia 🥐</button>
+          </div>
+        </div>
+
+        <!-- Cover Details -->
+        <div class="control-group">
+          <label class="control-label" for="cover-title-input">Front Cover Title</label>
+          <input type="text" id="cover-title-input" class="input-text" value="2027 Calendar">
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="cover-subtitle-input">Front Cover Subtitle / Motto</label>
+          <input type="text" id="cover-subtitle-input" class="input-text" value="My Personal Desk Planner">
+          <label class="checkbox-label" style="margin-top: 4px;">
+            <input type="checkbox" id="italic-subtitle-check" checked>
+            Italicize Subtitle
+          </label>
+        </div>
+
+        <!-- Footnote Inputs -->
+        <div class="control-group">
+          <label class="control-label" for="cover-footnote-input">Front Cover Footnote</label>
+          <input type="text" id="cover-footnote-input" class="input-text" value="" placeholder="Optional (e.g. Created for Jane)">
+        </div>
+
+        <div class="control-group">
+          <label class="control-label" for="page-footnote-input">Page Footnote (Inner Cards)</label>
+          <input type="text" id="page-footnote-input" class="input-text" value="AEF Printing">
+        </div>
+
+        <!-- Holiday Toggle -->
+        <div class="control-group">
+          <label class="checkbox-label">
+            <input type="checkbox" id="show-holidays-check">
+            Show Philippine Holidays
+          </label>
+        </div>
+
+        <!-- PDF & Photo Optimizer -->
+        <div class="control-group" id="pdf-optimizer-box" style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 8px; padding: 12px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+            <label class="control-label" style="color: #1e40af;">⚡ PDF File Size Optimizer</label>
+            <span id="pdf-size-badge" style="font-size: 0.7rem; font-weight: 700; background: #dbeafe; color: #1e40af; padding: 2px 6px; border-radius: 4px;">0 KB</span>
+          </div>
+          <select id="pdf-dpi-preset" class="select-input" style="font-size: 0.8rem; padding: 6px 8px;">
+            <option value="1200" selected>Balanced Print (200 DPI • ~3–5 MB PDF)</option>
+            <option value="1800">Ultra-Sharp Studio (300 DPI • ~8–12 MB PDF)</option>
+            <option value="800">Compact Mobile (150 DPI • ~1.5–2.5 MB PDF)</option>
+          </select>
+          <span id="compression-status-text" style="font-size: 0.72rem; color: #64748b; margin-top: 4px;">Photos auto-downscaled from raw camera sizes</span>
+        </div>
+
+        <!-- Image Manager & Reposition Controls -->
+        <div class="control-group" id="photo-management-section">
+          <label class="control-label">Card Photos (Up to 13)</label>
+          <div class="photo-slot-picker">
+            <select id="image-slot-select" class="select-input">
+              <option value="cover">📖 Front Cover Card</option>
+              <option value="0">01 - January Card</option>
+              <option value="1">02 - February Card</option>
+              <option value="2">03 - March Card</option>
+              <option value="3">04 - April Card</option>
+              <option value="4">05 - May Card</option>
+              <option value="5">06 - June Card</option>
+              <option value="6">07 - July Card</option>
+              <option value="7">08 - August Card</option>
+              <option value="8">09 - September Card</option>
+              <option value="9">10 - October Card</option>
+              <option value="10">11 - November Card</option>
+              <option value="11">12 - December Card</option>
+            </select>
+          </div>
+          <div class="upload-btn-group">
+            <button class="btn btn-secondary" onclick="document.getElementById('file-uploader').click()" style="width: 100%;">
+              📷 Upload Image
+            </button>
+            <input type="file" id="file-uploader" class="file-input-hidden" accept="image/*" multiple>
+          </div>
+
+          <div id="image-adjust-controls" style="display: flex; flex-direction: column; gap: 8px; margin-top: 8px; padding: 10px; background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px;">
+            <label class="control-label" style="font-size: 0.75rem; color: #334155;">Adjust Selected Photo</label>
+            <div style="display: flex; flex-direction: column; gap: 6px; font-size: 0.8rem;">
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span>Zoom:</span>
+                <input type="range" id="img-zoom-range" min="100" max="250" value="100" style="width: 130px;">
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span>Vertical Position:</span>
+                <input type="range" id="img-posy-range" min="0" max="100" value="50" style="width: 130px;">
+              </div>
+              <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span>Horizontal Position:</span>
+                <input type="range" id="img-posx-range" min="0" max="100" value="50" style="width: 130px;">
+              </div>
+              <button class="btn btn-secondary" onclick="resetImageAdjustment()" style="padding: 4px 8px; font-size: 0.75rem; margin-top: 2px;">
+                🔄 Reset Position
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-stage">
+      <div class="toolbar">
+        <div>
+          <h2 id="toolbar-title">A4 Landscape Sheet • Cut Vertically into Portrait Cards</h2>
+          <span id="toolbar-desc" style="font-size: 0.85rem; opacity: 0.8;">7 A4 sheets • 14 Portrait A5 cards (148.5 × 210mm)</span>
+        </div>
+        <button class="btn btn-primary" onclick="window.print()" style="padding: 10px 20px; font-size: 0.95rem; white-space: nowrap;">
+          🖨️ Print / Save PDF
+        </button>
+      </div>
+
+      <div id="booklet-canvas" class="booklet-container">
+        <!-- Rendered dynamically -->
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const appState = {
+      layoutMode: 'desktop',
+      cardOrientation: 'portrait',
+      cardTemplate: 'classic', // classic, basic, planner, polaroid, arch
+      photoDisplayMode: 'card', // 'card' or 'background'
+      bgOverlayOpacity: 0.88,
+      punchHoleStyle: 'none', // 'none', 'two-hole', 'spiral'
+      year: 2027,
+      theme: 'minimal',
+      coverTitle: '2027 Calendar',
+      coverSubtitle: 'My Personal Desk Planner',
+      italicSubtitle: true,
+      coverFootnote: '',
+      pageFootnote: 'AEF Printing',
+      showHolidays: false,
+      maxDimension: 1200,
+      jpegQuality: 0.82,
+      images: {},
+      imageAdjustments: {},
+      photoByteSizes: {},
+      events: [] // [{ id, month, day, text }]
+    };
+
+    // Runtime-only caches
+    const runtime = {
+      imageObjectUrls: {},
+      originalFiles: new Map(), // Preserves original uploads for dynamic re-compression
+      holidays: new Map(),
+      eventMap: new Map(),
+      renderQueued: false,
+      renderVersion: 0
+    };
+
+    const monthNames = [
+      "January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    function getImgAdjustment(slot) {
+      return appState.imageAdjustments[slot] || { posX: 50, posY: 50, zoom: 100 };
+    }
+
+    function getImgStyle(slot) {
+      const adj = getImgAdjustment(slot);
+      return `object-fit: cover; object-position: ${adj.posX}% ${adj.posY}%; transform: scale(${adj.zoom / 100}); transform-origin: ${adj.posX}% ${adj.posY}%;`;
+    }
+
+    function getPHHolidays(year) {
+      if (runtime.holidays.has(year)) return runtime.holidays.get(year);
+
+      const holidays = {};
+      holidays[`${year}-01-01`] = { name: "New Year's Day", type: "regular" };
+      holidays[`${year}-04-09`] = { name: "Araw ng Kagitingan", type: "regular" };
+      holidays[`${year}-05-01`] = { name: "Labor Day", type: "regular" };
+      holidays[`${year}-06-12`] = { name: "Independence Day", type: "regular" };
+      holidays[`${year}-11-30`] = { name: "Bonifacio Day", type: "regular" };
+      holidays[`${year}-12-25`] = { name: "Christmas Day", type: "regular" };
+      holidays[`${year}-12-30`] = { name: "Rizal Day", type: "regular" };
+
+      holidays[`${year}-08-21`] = { name: "Ninoy Aquino Day", type: "special" };
+      holidays[`${year}-11-01`] = { name: "All Saints' Day", type: "special" };
+      holidays[`${year}-11-02`] = { name: "All Souls' Day", type: "special" };
+      holidays[`${year}-12-08`] = { name: "Immaculate Conception", type: "special" };
+      holidays[`${year}-12-31`] = { name: "Last Day of Year", type: "special" };
+
+      runtime.holidays.set(year, holidays);
+      return holidays;
+    }
+
+    function rebuildEventMap() {
+      runtime.eventMap.clear();
+      for (const event of appState.events) {
+        const key = `${event.month}-${event.day}`;
+        if (!runtime.eventMap.has(key)) runtime.eventMap.set(key, []);
+        runtime.eventMap.get(key).push(event);
+      }
+    }
+
+    function getEventsForDay(monthIdx, day) {
+      return runtime.eventMap.get(`${monthIdx}-${day}`) || [];
+    }
+
+    function addPersonalEvent() {
+      const month = parseInt(document.getElementById('event-month-select').value, 10);
+      const day = parseInt(document.getElementById('event-day-input').value, 10);
+      const text = document.getElementById('event-title-input').value.trim();
+
+      if (!text || Number.isNaN(day) || day < 1 || day > 31) return;
+
+      appState.events.push({
+        id: Date.now() + Math.random(),
+        month,
+        day,
+        text
+      });
+
+      document.getElementById('event-title-input').value = '';
+      rebuildEventMap();
+      renderEventsListUI();
+      scheduleRender();
+    }
+
+    function removePersonalEvent(id) {
+      appState.events = appState.events.filter(e => e.id !== id);
+      rebuildEventMap();
+      renderEventsListUI();
+      scheduleRender();
+    }
+
+    function renderEventsListUI() {
+      const container = document.getElementById('events-list-container');
+      if (!container) return;
+      if (appState.events.length === 0) {
+        container.innerHTML = '<span style="font-size:0.75rem; color:#94a3b8;">No events added yet.</span>';
+        return;
+      }
+      container.innerHTML = appState.events.map(ev => `
+        <div style="display:flex; justify-content:space-between; align-items:center; background:#f1f5f9; padding:4px 8px; border-radius:4px; font-size:0.75rem;">
+          <span style="overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:240px;">
+            <strong>${monthNames[ev.month].substring(0,3)} ${ev.day}:</strong> ${escapeHtml(ev.text)}
+          </span>
+          <button onclick="removePersonalEvent(${ev.id})" style="border:none; background:none; color:#ef4444; font-weight:bold; cursor:pointer; font-size:0.9rem; padding:0 4px;">&times;</button>
+        </div>
+      `).join('');
+    }
+
+    function updateDynamicPrintStyle() {
+      const styleEl = document.getElementById('dynamic-print-style');
+      const isPortraitSheet = (appState.layoutMode === 'desktop' && appState.cardOrientation === 'landscape');
+      styleEl.innerHTML = `@media print { @page { size: A4 ${isPortraitSheet ? 'portrait' : 'landscape'}; margin: 0; } }`;
+    }
+
+    function setLayoutMode(mode) {
+      appState.layoutMode = mode;
+      document.getElementById('btn-layout-desktop').classList.toggle('active', mode === 'desktop');
+      document.getElementById('btn-layout-fullpage').classList.toggle('active', mode === 'fullpage');
+      document.getElementById('card-orientation-group').style.display = mode === 'desktop' ? 'flex' : 'none';
+
+      updateHeaderAndPrint();
+    }
+
+    function setCardOrientation(orientation) {
+      appState.cardOrientation = orientation;
+      document.getElementById('btn-card-portrait').classList.toggle('active', orientation === 'portrait');
+      document.getElementById('btn-card-landscape').classList.toggle('active', orientation === 'landscape');
+
+      updateHeaderAndPrint();
+    }
+
+    function setCardTemplate(template) {
+      appState.cardTemplate = template;
+      document.querySelectorAll('.template-select-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.template === template);
+      });
+
+      // Show/hide photo upload control when in basic template
+      const photoSection = document.getElementById('photo-management-section');
+      const photoModeGroup = document.getElementById('photo-display-mode-group');
+      const isBasic = template === 'basic';
+      if (photoSection) photoSection.style.opacity = isBasic ? '0.45' : '1';
+      if (photoModeGroup) photoModeGroup.style.opacity = isBasic ? '0.45' : '1';
+
+      scheduleRender();
+    }
+
+    function setPhotoDisplayMode(mode) {
+      appState.photoDisplayMode = mode;
+      document.getElementById('btn-photomode-card').classList.toggle('active', mode === 'card');
+      document.getElementById('btn-photomode-bg').classList.toggle('active', mode === 'background');
+      
+      const opacityBox = document.getElementById('bg-opacity-control');
+      if (opacityBox) opacityBox.style.display = mode === 'background' ? 'flex' : 'none';
+      
+      scheduleRender();
+    }
+
+    function setBgOverlayOpacity(val) {
+      appState.bgOverlayOpacity = val / 100;
+      const valLabel = document.getElementById('bg-opacity-val');
+      if (valLabel) valLabel.textContent = `${val}%`;
+      document.documentElement.style.setProperty('--overlay-bg', `rgba(255, 255, 255, ${appState.bgOverlayOpacity})`);
+      scheduleRender();
+    }
+
+    function setPunchHoleStyle(style) {
+      appState.punchHoleStyle = style;
+      document.getElementById('btn-punch-none').classList.toggle('active', style === 'none');
+      document.getElementById('btn-punch-two').classList.toggle('active', style === 'two-hole');
+      document.getElementById('btn-punch-spiral').classList.toggle('active', style === 'spiral');
+      scheduleRender();
+    }
+
+    function createPunchHoleGuideNode() {
+      if (appState.punchHoleStyle === 'none') return null;
+
+      const container = document.createElement('div');
+      container.className = 'punch-hole-container';
+
+      if (appState.punchHoleStyle === 'two-hole') {
+        container.className += ' punch-top-edge';
+        container.innerHTML = `
+          <div class="punch-hole-mark"></div>
+          <div class="punch-hole-mark"></div>
+        `;
+      } else if (appState.punchHoleStyle === 'spiral') {
+        container.className += ' punch-spiral-edge';
+        let dots = '';
+        for (let i = 0; i < 18; i++) {
+          dots += '<div class="punch-hole-mark punch-spiral-mark"></div>';
+        }
+        container.innerHTML = dots;
+      }
+      return container;
+    }
+
+    function updateHeaderAndPrint() {
+      updateDynamicPrintStyle();
+
+      const titleEl = document.getElementById('toolbar-title');
+      const descEl = document.getElementById('toolbar-desc');
+
+      if (appState.layoutMode === 'desktop') {
+        if (appState.cardOrientation === 'portrait') {
+          if (titleEl) titleEl.innerText = "A4 Landscape Sheet • Cut Vertically into Portrait Cards";
+          if (descEl) descEl.innerText = "7 A4 sheets • 14 Portrait A5 cards (148.5 × 210mm)";
+        } else {
+          if (titleEl) titleEl.innerText = "A4 Portrait Sheet • Cut Horizontally into Landscape Cards";
+          if (descEl) descEl.innerText = "7 A4 sheets • 14 Landscape A5 cards (210 × 148.5mm)";
+        }
+      } else {
+        if (titleEl) titleEl.innerText = "Full Page A4 Calendar Planner (Landscape Side-by-Side Format)";
+        if (descEl) descEl.innerText = "13 A4 Landscape sheets • 1 Full page per month + Cover";
+      }
+
+      scheduleRender();
+    }
+
+    function updateAdjustmentSlidersUI() {
+      const slotEl = document.getElementById('image-slot-select');
+      if (!slotEl) return;
+      const slot = slotEl.value;
+      const adj = getImgAdjustment(slot);
+      document.getElementById('img-zoom-range').value = adj.zoom;
+      document.getElementById('img-posy-range').value = adj.posY;
+      document.getElementById('img-posx-range').value = adj.posX;
+    }
+
+    function applyImageAdjustmentToDom(slot) {
+      const adj = getImgAdjustment(slot);
+      const images = document.querySelectorAll(`[data-image-slot="${CSS.escape(String(slot))}"]`);
+      const transform = `scale(${adj.zoom / 100})`;
+      const objectPosition = `${adj.posX}% ${adj.posY}%`;
+      for (const img of images) {
+        img.style.objectPosition = objectPosition;
+        img.style.transform = transform;
+        img.style.transformOrigin = objectPosition;
+      }
+    }
+
+    function resetImageAdjustment() {
+      const slotEl = document.getElementById('image-slot-select');
+      if (!slotEl) return;
+      const slot = slotEl.value;
+      appState.imageAdjustments[slot] = { posX: 50, posY: 50, zoom: 100 };
+      updateAdjustmentSlidersUI();
+      applyImageAdjustmentToDom(slot);
+    }
+
+    function formatBytes(bytes) {
+      if (!bytes || bytes <= 0) return '0 KB';
+      const k = 1024;
+      const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+      const i = Math.floor(Math.log(bytes) / Math.log(k));
+      return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+    }
+
+    function updatePdfSizeMeter() {
+      const badge = document.getElementById('pdf-size-badge');
+      if (!badge) return;
+      let totalBytes = 0;
+      for (const key in appState.photoByteSizes) {
+        totalBytes += appState.photoByteSizes[key] || 0;
+      }
+      badge.textContent = `~${formatBytes(totalBytes)} photos`;
+    }
+
+    async function compressImageFile(file, maxDimension, quality) {
+      return new Promise((resolve) => {
+        const img = new Image();
+        const tempUrl = URL.createObjectURL(file);
+        
+        img.onload = () => {
+          URL.revokeObjectURL(tempUrl);
+          let { width, height } = img;
+          
+          if (width > maxDimension || height > maxDimension) {
+            if (width > height) {
+              height = Math.round((height * maxDimension) / width);
+              width = maxDimension;
+            } else {
+              width = Math.round((width * maxDimension) / height);
+              height = maxDimension;
+            }
+          }
+
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d', { alpha: false });
+
+          // Prevent transparency black blooming
+          ctx.fillStyle = '#ffffff';
+          ctx.fillRect(0, 0, width, height);
+          ctx.imageSmoothingEnabled = true;
+          ctx.imageSmoothingQuality = 'high';
+          ctx.drawImage(img, 0, 0, width, height);
+
+          canvas.toBlob((blob) => {
+            if (!blob) {
+              const fallbackUrl = URL.createObjectURL(file);
+              resolve({ objectUrl: fallbackUrl, size: file.size });
+              return;
+            }
+            const objectUrl = URL.createObjectURL(blob);
+            resolve({ objectUrl, size: blob.size, originalSize: file.size });
+          }, 'image/jpeg', quality);
+        };
+
+        img.onerror = () => {
+          URL.revokeObjectURL(tempUrl);
+          const fallbackUrl = URL.createObjectURL(file);
+          resolve({ objectUrl: fallbackUrl, size: file.size });
+        };
+
+        img.src = tempUrl;
+      });
+    }
+
+    function replaceImageObjectUrl(slot, objectUrl, byteSize) {
+      const oldUrl = runtime.imageObjectUrls[slot];
+      if (oldUrl) URL.revokeObjectURL(oldUrl);
+      runtime.imageObjectUrls[slot] = objectUrl;
+      appState.images[slot] = objectUrl;
+      if (byteSize !== undefined) {
+        appState.photoByteSizes[slot] = byteSize;
+        updatePdfSizeMeter();
+      }
+    }
+
+    async function recompressAllImages() {
+      const statusText = document.getElementById('compression-status-text');
+      if (statusText) statusText.textContent = 'Recompressing photos to new DPI...';
+      
+      const promises = [];
+      for (const [slot, file] of runtime.originalFiles.entries()) {
+        promises.push(
+          compressImageFile(file, appState.maxDimension, appState.jpegQuality).then(res => {
+            replaceImageObjectUrl(slot, res.objectUrl, res.size);
+          })
+        );
+      }
+      
+      await Promise.all(promises);
+      if (statusText) statusText.textContent = 'PDF images optimized!';
+      updatePdfSizeMeter();
+      scheduleRender();
+    }
+
+    function scheduleRender() {
+      if (runtime.renderQueued) return;
+      runtime.renderQueued = true;
+      requestAnimationFrame(() => {
+        runtime.renderQueued = false;
+        renderAllSheets();
+      });
+    }
+
+    function renderAllSheets() {
+      const container = document.getElementById('booklet-canvas');
+      if (!container) return;
+      const fragment = document.createDocumentFragment();
+      runtime.renderVersion++;
+
+      if (appState.layoutMode === 'desktop') {
+        fragment.appendChild(renderDesktopSheet1());
+        for (let i = 0; i < 12; i += 2) {
+          fragment.appendChild(renderDesktopMonthSheet(i, i + 1));
+        }
+      } else {
+        fragment.appendChild(renderFullpageCover());
+        for (let i = 0; i < 12; i++) {
+          fragment.appendChild(renderFullpageMonth(i));
+        }
+      }
+
+      container.replaceChildren(fragment);
+    }
+
+    function renderDesktopSheet1() {
+      const sheet = document.createElement('div');
+      const isLandscape = appState.cardOrientation === 'landscape';
+      sheet.className = `a4-page-sheet ${isLandscape ? 'desktop-landscape' : 'desktop-portrait'} template-${appState.cardTemplate}`;
+
+      const cutLine = document.createElement('div');
+      cutLine.className = 'cut-line-guide';
+      sheet.appendChild(cutLine);
+
+      const cardStyleClass = isLandscape ? 'card-style-landscape' : 'card-style-portrait';
+
+      // Cover Card
+      const card1 = document.createElement('div');
+      card1.className = `desk-card ${cardStyleClass}`;
+
+      // Hole punch marks
+      const punch1 = createPunchHoleGuideNode();
+      if (punch1) card1.appendChild(punch1);
+
+      const isBasic = appState.cardTemplate === 'basic';
+      const isBgMode = appState.photoDisplayMode === 'background' && !isBasic && appState.images['cover'];
+
+      if (isBgMode) {
+        card1.classList.add('card-has-bg-photo');
+        card1.innerHTML += `
+          <div class="card-bg-photo-layer">
+            <img data-image-slot="cover" src="${appState.images['cover']}" alt="Cover Background" decoding="async" style="${getImgStyle('cover')}">
+          </div>
+          <div class="card-bg-photo-overlay"></div>
+          <div class="card-content-foreground">
+            <div class="cover-card-content" style="background: transparent; border: none;">
+              <div>
+                <div class="cover-title">${escapeHtml(appState.coverTitle)}</div>
+                <div class="cover-subtitle ${appState.italicSubtitle ? 'italicized' : ''}">${escapeHtml(appState.coverSubtitle)}</div>
+                ${appState.coverFootnote ? `<div class="cover-footnote-text" style="margin-top: 12px;">${escapeHtml(appState.coverFootnote)}</div>` : ''}
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        const coverPhotoHtml = (!isBasic && appState.images['cover'])
+          ? `<div class="cover-photo-frame"><img data-image-slot="cover" src="${appState.images['cover']}" alt="Cover" decoding="async" style="${getImgStyle('cover')}"></div>` 
+          : (!isBasic ? `<div class="cover-photo-frame"><span style="font-size:2.5rem;">🗓️</span></div>` : '');
+
+        card1.innerHTML += `
+          <div class="cover-card-content">
+            ${coverPhotoHtml}
+            <div>
+              <div class="cover-title">${escapeHtml(appState.coverTitle)}</div>
+              <div class="cover-subtitle ${appState.italicSubtitle ? 'italicized' : ''}">${escapeHtml(appState.coverSubtitle)}</div>
+              ${appState.coverFootnote ? `<div class="cover-footnote-text" style="margin-top: 12px;">${escapeHtml(appState.coverFootnote)}</div>` : ''}
+            </div>
+          </div>
+        `;
+      }
+
+      // Year Overview Card
+      const card2 = document.createElement('div');
+      card2.className = `desk-card ${cardStyleClass}`;
+
+      const punch2 = createPunchHoleGuideNode();
+      if (punch2) card2.appendChild(punch2);
+
+      card2.innerHTML += `
+        <div class="year-overview-card">
+          <div class="card-header-sm">
+            <h3>${appState.year} Year At A Glance</h3>
+            <span>${escapeHtml(appState.pageFootnote)}</span>
+          </div>
+          <div class="mini-year-grid">
+            ${monthNames.map((m, idx) => `
+              <div class="mini-month-unit">
+                <h4>${m.substring(0, 3)}</h4>
+                ${generateMiniCalendarHtml(appState.year, idx)}
+              </div>
+            `).join('')}
+          </div>
+          <div class="card-footer-footnote" style="margin-top: 6px;">
+            ${escapeHtml(appState.pageFootnote)}
+          </div>
+        </div>
+      `;
+
+      sheet.appendChild(card1);
+      sheet.appendChild(card2);
+      return sheet;
+    }
+
+    function renderDesktopMonthSheet(m1Idx, m2Idx) {
+      const sheet = document.createElement('div');
+      const isLandscape = appState.cardOrientation === 'landscape';
+      sheet.className = `a4-page-sheet ${isLandscape ? 'desktop-landscape' : 'desktop-portrait'} template-${appState.cardTemplate}`;
+
+      const cutLine = document.createElement('div');
+      cutLine.className = 'cut-line-guide';
+      sheet.appendChild(cutLine);
+
+      const cardStyleClass = isLandscape ? 'card-style-landscape' : 'card-style-portrait';
+
+      const card1 = document.createElement('div');
+      card1.className = `desk-card ${cardStyleClass}`;
+      const punch1 = createPunchHoleGuideNode();
+      if (punch1) card1.appendChild(punch1);
+      card1.appendChild(createMonthCardNode(m1Idx, isLandscape));
+
+      const card2 = document.createElement('div');
+      card2.className = `desk-card ${cardStyleClass}`;
+      const punch2 = createPunchHoleGuideNode();
+      if (punch2) card2.appendChild(punch2);
+      card2.appendChild(createMonthCardNode(m2Idx, isLandscape));
+
+      sheet.appendChild(card1);
+      sheet.appendChild(card2);
+      return sheet;
+    }
+
+    function createMonthCardNode(monthIdx, isLandscape) {
+      const holidays = getPHHolidays(appState.year);
+      const card = document.createElement('div');
+      card.className = `month-desk-card template-${appState.cardTemplate}`;
+
+      const slotKey = monthIdx.toString();
+      const photoSrc = appState.images[slotKey];
+      const isBasic = appState.cardTemplate === 'basic';
+      const isBgMode = appState.photoDisplayMode === 'background' && !isBasic && Boolean(photoSrc);
+
+      const photoHtml = (!isBasic && photoSrc)
+        ? `<div class="month-card-photo"><img data-image-slot="${slotKey}" src="${photoSrc}" alt="${monthNames[monthIdx]}" decoding="async" style="${getImgStyle(slotKey)}"></div>`
+        : (!isBasic ? `<div class="month-card-photo"><span class="no-img-placeholder">${monthNames[monthIdx]}</span></div>` : '');
+
+      // Productivity planner notes block
+      const plannerNotesHtml = appState.cardTemplate === 'planner' ? `
+        <div class="planner-notes-block">
+          <div class="planner-notes-header">
+            <span>🎯 Monthly Focus</span>
+            <span>✓</span>
+          </div>
+          <div class="planner-line-row"><span class="planner-checkbox-dot"></span> <span>Goal 1: __________________________</span></div>
+          <div class="planner-line-row"><span class="planner-checkbox-dot"></span> <span>Goal 2: __________________________</span></div>
+        </div>
+      ` : '';
+
+      // If full background mode is active
+      if (isBgMode) {
+        card.classList.add('card-has-bg-photo');
+        const contentInside = isLandscape ? `
+          <div class="landscape-card-right" style="width: 100%;">
+            <div class="month-card-header">
+              <span class="month-card-title">${monthNames[monthIdx]}</span>
+              <span class="month-card-year">${appState.year}</span>
+            </div>
+            <div class="card-calendar-grid">
+              <div class="weekdays-row">
+                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+              </div>
+              <div class="days-grid-matrix">
+                ${generateDaysMatrixHtml(appState.year, monthIdx, holidays)}
+              </div>
+            </div>
+            ${plannerNotesHtml}
+            <div class="card-footer-footnote">
+              ${escapeHtml(appState.pageFootnote)}
+            </div>
+          </div>
+        ` : `
+          <div class="month-card-header">
+            <span class="month-card-title">${monthNames[monthIdx]}</span>
+            <span class="month-card-year">${appState.year}</span>
+          </div>
+          <div class="card-calendar-grid">
+            <div class="weekdays-row">
+              <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+            </div>
+            <div class="days-grid-matrix">
+              ${generateDaysMatrixHtml(appState.year, monthIdx, holidays)}
+            </div>
+          </div>
+          ${plannerNotesHtml}
+          <div class="card-footer-footnote">
+            ${escapeHtml(appState.pageFootnote)}
+          </div>
+        `;
+
+        card.innerHTML = `
+          <div class="card-bg-photo-layer">
+            <img data-image-slot="${slotKey}" src="${photoSrc}" alt="${monthNames[monthIdx]}" decoding="async" style="${getImgStyle(slotKey)}">
+          </div>
+          <div class="card-bg-photo-overlay"></div>
+          <div class="card-content-foreground">
+            ${contentInside}
+          </div>
+        `;
+        return card;
+      }
+
+      // Standard card frame or basic template
+      if (isLandscape) {
+        card.innerHTML = `
+          ${!isBasic ? `
+          <div class="landscape-card-left">
+            ${photoHtml}
+            ${plannerNotesHtml}
+          </div>` : ''}
+          <div class="landscape-card-right">
+            <div class="month-card-header">
+              <span class="month-card-title">${monthNames[monthIdx]}</span>
+              <span class="month-card-year">${appState.year}</span>
+            </div>
+            <div class="card-calendar-grid">
+              <div class="weekdays-row">
+                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+              </div>
+              <div class="days-grid-matrix">
+                ${generateDaysMatrixHtml(appState.year, monthIdx, holidays)}
+              </div>
+            </div>
+            ${isBasic ? plannerNotesHtml : ''}
+            <div class="card-footer-footnote">
+              ${escapeHtml(appState.pageFootnote)}
+            </div>
+          </div>
+        `;
+      } else {
+        card.innerHTML = `
+          ${photoHtml}
+          <div class="month-card-header">
+            <span class="month-card-title">${monthNames[monthIdx]}</span>
+            <span class="month-card-year">${appState.year}</span>
+          </div>
+          <div class="card-calendar-grid">
+            <div class="weekdays-row">
+              <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+            </div>
+            <div class="days-grid-matrix">
+              ${generateDaysMatrixHtml(appState.year, monthIdx, holidays)}
+            </div>
+          </div>
+          ${plannerNotesHtml}
+          <div class="card-footer-footnote">
+            ${escapeHtml(appState.pageFootnote)}
+          </div>
+        `;
+      }
+
+      return card;
+    }
+
+    function renderFullpageCover() {
+      const sheet = document.createElement('div');
+      sheet.className = `a4-page-sheet fullpage-layout template-${appState.cardTemplate}`;
+
+      const punch = createPunchHoleGuideNode();
+      if (punch) sheet.appendChild(punch);
+
+      const isBasic = appState.cardTemplate === 'basic';
+      const isBgMode = appState.photoDisplayMode === 'background' && !isBasic && appState.images['cover'];
+
+      if (isBgMode) {
+        sheet.classList.add('card-has-bg-photo');
+        sheet.innerHTML += `
+          <div class="card-bg-photo-layer">
+            <img data-image-slot="cover" src="${appState.images['cover']}" alt="Cover Background" decoding="async" style="${getImgStyle('cover')}">
+          </div>
+          <div class="card-bg-photo-overlay"></div>
+          <div class="card-content-foreground" style="justify-content: center; align-items: center; padding: 40px; text-align: center;">
+            <div class="cover-title" style="font-size: 3.8rem; margin-bottom: 12px;">${escapeHtml(appState.coverTitle)}</div>
+            <div class="cover-subtitle ${appState.italicSubtitle ? 'italicized' : ''}" style="font-size: 1.4rem;">${escapeHtml(appState.coverSubtitle)}</div>
+            ${appState.coverFootnote ? `<div class="cover-footnote-text" style="margin-top: 24px; font-size: 0.95rem;">${escapeHtml(appState.coverFootnote)}</div>` : ''}
+          </div>
+        `;
+        return sheet;
+      }
+
+      const coverPhotoHtml = (!isBasic && appState.images['cover'])
+        ? `<div class="fullpage-photo-frame"><img data-image-slot="cover" src="${appState.images['cover']}" alt="Cover" decoding="async" style="${getImgStyle('cover')}"></div>` 
+        : (!isBasic ? `<div class="fullpage-photo-frame"><span style="font-size:5rem;">🗓️</span></div>` : '');
+
+      sheet.innerHTML += `
+        ${!isBasic ? `<div class="fullpage-left-photo">${coverPhotoHtml}</div>` : ''}
+        <div class="fullpage-right-content" style="justify-content: center; background: var(--bg-page); border: 1px solid var(--border-color); border-radius: var(--card-radius); padding: 36px; text-align: center;">
+          <div class="cover-title" style="font-size: 3.8rem; margin-bottom: 12px;">${escapeHtml(appState.coverTitle)}</div>
+          <div class="cover-subtitle ${appState.italicSubtitle ? 'italicized' : ''}" style="font-size: 1.4rem;">${escapeHtml(appState.coverSubtitle)}</div>
+          ${appState.coverFootnote ? `<div class="cover-footnote-text" style="margin-top: 24px; font-size: 0.95rem;">${escapeHtml(appState.coverFootnote)}</div>` : ''}
+        </div>
+      `;
+      return sheet;
+    }
+
+    function renderFullpageMonth(monthIdx) {
+      const sheet = document.createElement('div');
+      sheet.className = `a4-page-sheet fullpage-layout template-${appState.cardTemplate}`;
+      const holidays = getPHHolidays(appState.year);
+
+      const punch = createPunchHoleGuideNode();
+      if (punch) sheet.appendChild(punch);
+
+      const slotKey = monthIdx.toString();
+      const photoSrc = appState.images[slotKey];
+      const isBasic = appState.cardTemplate === 'basic';
+      const isBgMode = appState.photoDisplayMode === 'background' && !isBasic && Boolean(photoSrc);
+
+      const plannerNotesHtml = appState.cardTemplate === 'planner' ? `
+        <div class="planner-notes-block" style="margin-top: 10px; padding: 8px 12px;">
+          <div class="planner-notes-header" style="font-size: 0.72rem; margin-bottom: 4px;">
+            <span>🎯 Monthly Priorities & Key Tasks</span>
+            <span>Habit Tracker</span>
+          </div>
+          <div class="planner-line-row" style="font-size: 0.68rem;"><span class="planner-checkbox-dot" style="width: 10px; height: 10px;"></span> <span>Priority 1: __________________________________________________________________</span></div>
+          <div class="planner-line-row" style="font-size: 0.68rem;"><span class="planner-checkbox-dot" style="width: 10px; height: 10px;"></span> <span>Priority 2: __________________________________________________________________</span></div>
+        </div>
+      ` : '';
+
+      if (isBgMode) {
+        sheet.classList.add('card-has-bg-photo');
+        sheet.innerHTML += `
+          <div class="card-bg-photo-layer">
+            <img data-image-slot="${slotKey}" src="${photoSrc}" alt="${monthNames[monthIdx]}" decoding="async" style="${getImgStyle(slotKey)}">
+          </div>
+          <div class="card-bg-photo-overlay"></div>
+          <div class="card-content-foreground">
+            <div class="fullpage-right-content" style="width: 100%;">
+              <div class="fullpage-month-header">
+                <span class="fullpage-month-title">${monthNames[monthIdx]}</span>
+                <span style="font-size: 1.8rem; font-weight: 700; color: var(--text-muted);">${appState.year}</span>
+              </div>
+              <div class="card-calendar-grid">
+                <div class="weekdays-row">
+                  <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+                </div>
+                <div class="days-grid-matrix">
+                  ${generateDaysMatrixHtml(appState.year, monthIdx, holidays)}
+                </div>
+              </div>
+              ${plannerNotesHtml}
+              <div class="card-footer-footnote">
+                ${escapeHtml(appState.pageFootnote)}
+              </div>
+            </div>
+          </div>
+        `;
+        return sheet;
+      }
+
+      const photoHtml = (!isBasic && photoSrc)
+        ? `<div class="fullpage-photo-frame"><img data-image-slot="${slotKey}" src="${photoSrc}" alt="${monthNames[monthIdx]}" decoding="async" style="${getImgStyle(slotKey)}"></div>`
+        : (!isBasic ? `<div class="fullpage-photo-frame"><span style="font-family: var(--heading-font); font-size: 3rem; color: var(--accent); opacity: 0.6;">${monthNames[monthIdx]}</span></div>` : '');
+
+      sheet.innerHTML += `
+        ${!isBasic ? `<div class="fullpage-left-photo">${photoHtml}</div>` : ''}
+        <div class="fullpage-right-content">
+          <div class="fullpage-month-header">
+            <span class="fullpage-month-title">${monthNames[monthIdx]}</span>
+            <span style="font-size: 1.8rem; font-weight: 700; color: var(--text-muted);">${appState.year}</span>
+          </div>
+          <div class="card-calendar-grid">
+            <div class="weekdays-row">
+              <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
+            </div>
+            <div class="days-grid-matrix">
+              ${generateDaysMatrixHtml(appState.year, monthIdx, holidays)}
+            </div>
+          </div>
+          ${plannerNotesHtml}
+          <div class="card-footer-footnote">
+            ${escapeHtml(appState.pageFootnote)}
+          </div>
+        </div>
+      `;
+
+      return sheet;
+    }
+
+    function generateDaysMatrixHtml(year, monthIdx, holidays) {
+      const firstDay = new Date(year, monthIdx, 1).getDay();
+      const daysInMonth = new Date(year, monthIdx + 1, 0).getDate();
+      const prevMonthDays = new Date(year, monthIdx, 0).getDate();
+
+      let html = '';
+
+      for (let i = firstDay - 1; i >= 0; i--) {
+        html += `<div class="day-cell other-month"><span class="day-num">${prevMonthDays - i}</span></div>`;
+      }
+
+      for (let d = 1; d <= daysInMonth; d++) {
+        const dateStr = `${year}-${String(monthIdx + 1).padStart(2, '0')}-${String(d).padStart(2, '0')}`;
+        const dayOfWeek = new Date(year, monthIdx, d).getDay();
+        const isWeekend = dayOfWeek === 0 || dayOfWeek === 6;
+        const holiday = appState.showHolidays ? holidays[dateStr] : null;
+
+        const personalEvents = getEventsForDay(monthIdx, d);
+
+        html += `
+          <div class="day-cell ${isWeekend ? 'is-weekend' : ''}">
+            <span class="day-num">${d}</span>
+            ${holiday ? `<span class="holiday-indicator ${holiday.type}">${holiday.name}</span>` : ''}
+            ${personalEvents.map(e => `<span class="event-indicator" title="${escapeHtml(e.text)}">${escapeHtml(e.text)}</span>`).join('')}
+          </div>
+        `;
+      }
+
+      const totalCells = firstDay + daysInMonth;
+      const remaining = (7 - (totalCells % 7)) % 7;
+      for (let j = 1; j <= remaining; j++) {
+        html += `<div class="day-cell other-month"><span class="day-num">${j}</span></div>`;
+      }
+
+      return html;
+    }
+
+    function generateMiniCalendarHtml(year, monthIdx) {
+      const firstDay = new Date(year, monthIdx, 1).getDay();
+      const daysInMonth = new Date(year, monthIdx + 1, 0).getDate();
+      let html = '<div class="mini-days-num">';
+
+      for (let i = 0; i < firstDay; i++) {
+        html += '<span></span>';
+      }
+      for (let d = 1; d <= daysInMonth; d++) {
+        html += `<span>${d}</span>`;
+      }
+      html += '</div>';
+      return html;
+    }
+
+    function escapeHtml(str) {
+      return (str || '').replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+    }
+
+    function initApp() {
+      // Inputs
+      const yearInput = document.getElementById('year-input');
+      if (yearInput) {
+        yearInput.addEventListener('input', (e) => {
+          appState.year = parseInt(e.target.value, 10) || 2027;
+          scheduleRender();
+        });
+      }
+
+      const coverTitleInput = document.getElementById('cover-title-input');
+      if (coverTitleInput) {
+        coverTitleInput.addEventListener('input', (e) => {
+          appState.coverTitle = e.target.value;
+          scheduleRender();
+        });
+      }
+
+      const coverSubtitleInput = document.getElementById('cover-subtitle-input');
+      if (coverSubtitleInput) {
+        coverSubtitleInput.addEventListener('input', (e) => {
+          appState.coverSubtitle = e.target.value;
+          scheduleRender();
+        });
+      }
+
+      const italicCheck = document.getElementById('italic-subtitle-check');
+      if (italicCheck) {
+        italicCheck.addEventListener('change', (e) => {
+          appState.italicSubtitle = e.target.checked;
+          scheduleRender();
+        });
+      }
+
+      const coverFootnoteInput = document.getElementById('cover-footnote-input');
+      if (coverFootnoteInput) {
+        coverFootnoteInput.addEventListener('input', (e) => {
+          appState.coverFootnote = e.target.value;
+          scheduleRender();
+        });
+      }
+
+      const pageFootnoteInput = document.getElementById('page-footnote-input');
+      if (pageFootnoteInput) {
+        pageFootnoteInput.addEventListener('input', (e) => {
+          appState.pageFootnote = e.target.value;
+          scheduleRender();
+        });
+      }
+
+      const showHolidaysCheck = document.getElementById('show-holidays-check');
+      if (showHolidaysCheck) {
+        showHolidaysCheck.addEventListener('change', (e) => {
+          appState.showHolidays = e.target.checked;
+          scheduleRender();
+        });
+      }
+
+      // Themes
+      document.querySelectorAll('.theme-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          appState.theme = btn.dataset.theme;
+          document.body.setAttribute('data-theme', appState.theme);
+          scheduleRender();
+        });
+      });
+
+      const dpiSelect = document.getElementById('pdf-dpi-preset');
+      if (dpiSelect) {
+        dpiSelect.addEventListener('change', (e) => {
+          const val = parseInt(e.target.value, 10);
+          appState.maxDimension = val;
+          appState.jpegQuality = val >= 1800 ? 0.85 : val >= 1200 ? 0.80 : 0.75;
+          if (runtime.originalFiles.size > 0) {
+            recompressAllImages();
+          }
+        });
+      }
+
+      const slotSelect = document.getElementById('image-slot-select');
+      if (slotSelect) {
+        slotSelect.addEventListener('change', updateAdjustmentSlidersUI);
+      }
+
+      // Slider Handlers
+      const sliderHandlers = [
+        ['img-zoom-range', 'zoom'],
+        ['img-posy-range', 'posY'],
+        ['img-posx-range', 'posX']
+      ];
+
+      for (const [id, property] of sliderHandlers) {
+        const sliderEl = document.getElementById(id);
+        if (sliderEl) {
+          sliderEl.addEventListener('input', (e) => {
+            const slot = document.getElementById('image-slot-select').value;
+            if (!appState.imageAdjustments[slot]) {
+              appState.imageAdjustments[slot] = { posX: 50, posY: 50, zoom: 100 };
+            }
+            appState.imageAdjustments[slot][property] = parseInt(e.target.value, 10);
+            applyImageAdjustmentToDom(slot);
+          });
+        }
+      }
+
+      // File Uploader
+      const fileUploader = document.getElementById('file-uploader');
+      if (fileUploader) {
+        fileUploader.addEventListener('change', async (e) => {
+          const files = Array.from(e.target.files || []);
+          const selectedSlot = document.getElementById('image-slot-select').value;
+          e.target.value = '';
+          if (!files.length) return;
+
+          const statusText = document.getElementById('compression-status-text');
+          if (statusText) statusText.textContent = `Compressing ${files.length} photo(s)...`;
+
+          const slots = ['cover', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11'];
+          let startIndex = slots.indexOf(selectedSlot);
+          if (startIndex === -1) startIndex = 0;
+
+          const assignments = files
+            .map((file, i) => ({ file, slot: slots[startIndex + i] }))
+            .filter(item => item.slot !== undefined);
+
+          await Promise.all(assignments.map(async ({ file, slot }) => {
+            runtime.originalFiles.set(slot, file);
+            const comp = await compressImageFile(file, appState.maxDimension, appState.jpegQuality);
+            replaceImageObjectUrl(slot, comp.objectUrl, comp.size);
+          }));
+
+          if (statusText) statusText.textContent = `Optimized ${assignments.length} photo(s) for fast PDF export!`;
+          updateAdjustmentSlidersUI();
+          updatePdfSizeMeter();
+          scheduleRender();
+        });
+      }
+
+      // Initial render & state
+      rebuildEventMap();
+      renderEventsListUI();
+      updateAdjustmentSlidersUI();
+      document.body.setAttribute('data-theme', appState.theme);
+      renderAllSheets();
+    }
+
+    // Safe execution: handles environments where DOMContentLoaded has already fired
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+      initApp();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{
+  "name": "calendar-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Calendar Studio planner app",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "vitest run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/angelafrades1995-rgb/Calendar-Studio.git"
+  },
+  "keywords": [
+    "calendar",
+    "planner",
+    "vite"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vite": "^8.3.0"
+  },
+  "devDependencies": {
+    "jsdom": "^30.0.1",
+    "vitest": "^5.0.0"
+  }
+}
